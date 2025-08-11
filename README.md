@@ -14,6 +14,11 @@ Stack:
 How to run locally
 <img width="1902" height="639" alt="image" src="https://github.com/user-attachments/assets/9688cd0e-39b2-4402-8da8-b9d2a2cc97c4" />
 
+CodeStyle
+`dotnet format`
+`dotnet build`
+
+`.editorconfig` файл расположен в корневой папки вместе с `.sln`
 
 
 
