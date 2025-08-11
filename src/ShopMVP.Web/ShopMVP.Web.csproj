@@ -2,8 +2,11 @@
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
-    <Nullable>enable</Nullable>
-    <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ShopMVP.Application\ShopMVP.Application.csproj" />
+    <ProjectReference Include="..\ShopMVP.Infrastructure\ShopMVP.Infrastructure.csproj" />
+  </ItemGroup>
 
 </Project>
