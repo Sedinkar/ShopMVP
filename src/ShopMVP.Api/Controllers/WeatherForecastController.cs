@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ShopMVP.Api.Controllers
 {
+    ///<summary>Пример комментария над классом</summary>
     [ApiController]
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase
@@ -18,6 +19,7 @@ namespace ShopMVP.Api.Controllers
             _logger = logger;
         }
 
+        ///<summary>Возвращает прогноз на 5 дней</summary>
         [HttpGet(Name = "GetWeatherForecast")]
         public IEnumerable<WeatherForecast> Get()
         {
