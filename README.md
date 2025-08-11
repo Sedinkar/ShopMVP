@@ -1,4 +1,4 @@
-<img width="1902" height="639" alt="image" src="https://github.com/user-attachments/assets/ac8bc13e-ffa7-43b8-91f4-9b98d2d82ed1" /># ShopMVP
+# ShopMVP
 
 ASP.NET Core e-commerce MVP (electronics)
 
