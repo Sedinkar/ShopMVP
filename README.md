@@ -87,6 +87,17 @@ Response shape:
 }
 ```
 
+
+## Error handling (ProblemDetails)
+
+- All errors are returned in RFC 7807 application/problem+json.
+- Every response includes a traceId for correlation.
+- In Development the detail field contains exception information; in Production internal details are omitted.
+- HTTP 400 is produced automatically as ValidationProblemDetails when controllers use [ApiController].
+- HTTP 404 and 405 are returned as ProblemDetails via Status Code Pages.
+- Error responses are not cached (Cache-Control: no-store, no-cache, max-age=0, must-revalidate, Pragma: no-cache, Expires: 0).
+
+
 ## Code Style
 - `.editorconfig` lives at repo root (next to `.sln`).
 - Run before committing:
@@ -117,7 +128,7 @@ tests/
 ## Epics & roadmap (MVP)
 
 - [x] US-01: Repo & solution skeleton
-- [ ] US-02: API baseline — Swagger (Dev/Prod), Health Checks, global error handling (ProblemDetails)
+- [x] US-02: API baseline — Swagger (Dev/Prod), Health Checks, global error handling (ProblemDetails)
 - [ ] US-03: Database + EF Core (migrations, repositories), configuration & secrets
 - [ ] US-04: Product catalog (DTOs, paging/sorting), caching
 - [ ] US-05: AuthN/AuthZ (customer/admin), roles & policies
