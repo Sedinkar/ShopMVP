@@ -9,9 +9,30 @@ using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Microsoft.OpenApi.Models;
 
 using ShopMVP.Api.Health;
+using ShopMVP.Api.DatabaseOptions;
+
+using ShopMVP.Infrastructure.DependencyInjection;
+
+
+
 
 var builder = WebApplication.CreateBuilder(args);
 var env = builder.Environment;
+
+//EF Core
+/*
+builder.Services.Configure<DatabaseOptions>(
+    bind section "Databse"
+    )
+    */
+
+builder.Services.AddOptions<DatabaseOptions>()
+    .Bind(builder.Configuration.GetSection(DatabaseOptions.Option))
+    .ValidateDataAnnotations()
+    .ValidateOnStart();
+DatabaseOptions dbOptions = new DatabaseOptions();
+builder.Configuration.GetSection(DatabaseOptions.Option).Bind(dbOptions);
+DependencyInjection.AddPersistence(builder.Services, dbOptions.Default);
 
 // MVC
 builder.Services.AddControllers();
@@ -50,6 +71,9 @@ builder.Services.AddSwaggerGen(options =>
     var xmlFilename = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
     options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFilename), includeControllerXmlComments: true);
 });
+
+
+
 var app = builder.Build();
 
 
