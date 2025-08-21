@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Design;
 
 namespace ShopMVP.Infrastructure.Persistence;
 
@@ -9,8 +10,9 @@ public class AppDbContext : DbContext
 
     }
 }
-
-public class IDesignTimeDbContextFactory<T>
+/*
+public class AppDbContextFactory : IDesignTimeDbContextFactory<AppDbContext>
 {
-
+    DbContextOptionsBuilder<AppDbContext> builder = DbContextOption;
 }
+*/
