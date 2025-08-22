@@ -10,9 +10,18 @@ public class AppDbContext : DbContext
 
     }
 }
-/*
+
 public class AppDbContextFactory : IDesignTimeDbContextFactory<AppDbContext>
 {
-    DbContextOptionsBuilder<AppDbContext> builder = DbContextOption;
+    public AppDbContext CreateDbContext(string[] args)
+    {
+        string connectionString = Environment.GetEnvironmentVariable("ConnectionStrings__Default");
+        if (String.IsNullOrEmpty(connectionString))
+        {
+            connectionString = "Server=(localdb)\\MSSQLLocalDB;Database=ShopMvpDev;Trusted_Connection=True;MultipleActiveResultSets=true;TrustServerCertificate=True";
+        }
+        var optionsBuilder = new DbContextOptionsBuilder<AppDbContext>();
+        optionsBuilder.UseSqlServer(connectionString, sql => sql.EnableRetryOnFailure());
+        return new AppDbContext(optionsBuilder.Options);
+    }
 }
-*/
