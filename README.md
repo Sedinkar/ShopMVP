@@ -1,3 +1,4 @@
+Note: development is temporarily paused due to workload. Planned continuation from US-04.
 # ShopMVP
 
 E-commerce MVP (electronics) on **ASP.NET Core (.NET 8)**.
